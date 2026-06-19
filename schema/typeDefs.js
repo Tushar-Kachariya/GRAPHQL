@@ -1,0 +1,21 @@
+import { gql } from "apollo-server-express";
+
+export const typeDefs = gql`
+  type Product {
+    id: ID!
+    name: String!
+    price: Float!
+    stock: Int
+  }
+
+  type Query {
+    getProducts: [Product]
+    getProduct(id: ID!): Product
+  }
+
+  type Mutation {
+    createProduct(name: String!, price: Float!, stock: Int): Product
+    updateProduct(id: ID!, name: String, price: Float, stock: Int): Product
+    deleteProduct(id: ID!): String
+  }
+`;
